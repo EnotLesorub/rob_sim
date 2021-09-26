@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{3E2E4C52-99E2-30DA-0A8A-25DA629A7FC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -55,9 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Robot_movement.cs" />
-    <Compile Include="Assets\Scripts\Center.cs" />
-    <Compile Include="Assets\Scripts\Map_scan.cs" />
+    <Compile Include="Assets\Scripts\Robot\Map_scan.cs" />
+    <Compile Include="Assets\Scripts\Control System\Center.cs" />
+    <Compile Include="Assets\Scripts\Robot\Robot_brain.cs" />
+    <Compile Include="Assets\Scripts\Robot\Robot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
