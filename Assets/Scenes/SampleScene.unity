@@ -231,9 +231,9 @@ GameObject:
   - component: {fileID: 68236238}
   - component: {fileID: 68236237}
   - component: {fileID: 68236242}
-  - component: {fileID: 68236244}
   - component: {fileID: 68236243}
   - component: {fileID: 68236241}
+  - component: {fileID: 68236244}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Robot
@@ -329,7 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f705cee988be54f8c48c91ce14c5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Robot
 --- !u!54 &68236242
 Rigidbody:
   m_ObjectHideFlags: 0

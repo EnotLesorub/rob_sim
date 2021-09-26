@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Map_scan : MonoBehaviour
 {
-	public string targetTag = "Robot";
-	private float distance = 1f;
+	private string targetTag = "Robot";
+	private float distance = 1.0f;
 	private Vector3 offset;
 	private Transform target;
 
@@ -56,32 +56,6 @@ public class Map_scan : MonoBehaviour
 
 	void Update()
 	{
-		if (Vector3.Distance(transform.position, target.position) < distance)
-		{
 
-
-
-
-
-
-
-
-
-			/* Проверка работоспособности лучей
-			bool[] log = RayToScan();
-			string _log = null;
-
-			for (int i = 0; i < 3; i++)
-            {
-				if (log[i] == true)
-					_log += "true" + " ";
-
-				else
-					_log += "false" + " ";
-            }
-
-			Debug.Log(_log);
-			*/
-		}
 	}
 }

@@ -10,17 +10,7 @@ public class Robot : MonoBehaviour
     public float charge = 100f;
 
     private float speed = 2f;
-    private float rotation_speed = 90f;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    private float rotation_speed = 45;
 
     public void Movement_Logic(float moveHorizontal, float moveVertical)
     {
@@ -30,10 +20,19 @@ public class Robot : MonoBehaviour
 
     public void Rotation_Logic(int flag)
     {
+        if (flag == 0)
+            transform.Rotate(new Vector3(0, rotation_speed, 0) * Time.deltaTime);
         if (flag == 1)
-            transform.rotation *= Quaternion.Euler(0f, -rotation_speed * Time.deltaTime, 0f);
+            transform.Rotate(new Vector3(0, -rotation_speed, 0) * Time.deltaTime);
+    }
 
-        if (flag == 2)
-            transform.rotation *= Quaternion.Euler(0f, rotation_speed * Time.deltaTime, 0f);
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        
     }
 }
