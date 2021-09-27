@@ -6,7 +6,6 @@ public class Map_scan : MonoBehaviour
 {
 	private string targetTag = "Robot";
 	private float distance = 1.0f;
-	private Vector3 offset;
 	private Transform target;
 
 	void Start()
@@ -18,7 +17,7 @@ public class Map_scan : MonoBehaviour
 	{
 		bool result = false;
 		RaycastHit hit = new RaycastHit();
-		Vector3 pos = transform.position + offset;
+		Vector3 pos = transform.position;
 		if (Physics.Raycast(pos, dir, out hit, distance))
 		{
 			if (hit.transform == target)

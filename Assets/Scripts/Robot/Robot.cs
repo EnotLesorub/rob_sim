@@ -15,7 +15,7 @@ public class Robot : MonoBehaviour
     public void Movement_Logic(float moveHorizontal, float moveVertical)
     {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        transform.Translate(movement * speed * Time.fixedDeltaTime);
+        transform.Translate(movement * speed * Time.deltaTime);
     }
 
     public void Rotation_Logic(int flag)

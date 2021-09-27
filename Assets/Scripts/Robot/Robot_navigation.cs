@@ -10,8 +10,8 @@ public class Robot_navigation : MonoBehaviour
     private string target_tag = "Robot";
     private Transform target;
 
-    private int _flag = 0;
-    float _angle = 0;
+    private int move_state = 0;
+    float target_angle = 0;
 
     void Start()
     {
@@ -39,44 +39,44 @@ public class Robot_navigation : MonoBehaviour
     {
         if (flag == 0)
         { 
-            _flag = 1;
+            move_state = 1;
             robot.Rotation_Logic(0);
 
-            if (target.eulerAngles.y - _angle < 1 && target.eulerAngles.y - _angle > 0)
+            if (target.eulerAngles.y - target_angle < 1 && target.eulerAngles.y - target_angle > 0)
             {
-                _flag = 0;
+                move_state = 0;
 
-                transform.rotation = Quaternion.Euler(0, _angle, 0);
+                transform.rotation = Quaternion.Euler(0, target_angle, 0);
             }
         }
 
         if (flag == 1)
         {
-            _flag = 1;
+            move_state = 1;
             robot.Rotation_Logic(1);
 
-            if (target.eulerAngles.y - _angle < 1 && target.eulerAngles.y - _angle > 0)
+            if (target.eulerAngles.y - target_angle < 1 && target.eulerAngles.y - target_angle > 0)
             {
-                _flag = 0;
-                transform.rotation = Quaternion.Euler(0, _angle, 0);
+                move_state = 0;
+                transform.rotation = Quaternion.Euler(0, target_angle, 0);
             }
         }
     }
 
     private void Rotation(int direction, int angle)
     {
-        if (_flag == 0)
+        if (move_state == 0)
         {
             if (direction == 0)
-                _angle = Mathf.Round(target.eulerAngles.y) + angle;
+                target_angle = Mathf.Round(target.eulerAngles.y) + angle;
 
             if (direction == 1)
-                _angle = Mathf.Round(target.eulerAngles.y) - angle;
+                target_angle = Mathf.Round(target.eulerAngles.y) - angle;
 
-            if (_angle >= 360)
-                _angle -= 360;
-            else if (_angle < 0)
-                _angle += 360; 
+            if (target_angle >= 360)
+                target_angle -= 360;
+            else if (target_angle < 0)
+                target_angle += 360;
         }
 
         Rotation_log(direction);
@@ -86,7 +86,7 @@ public class Robot_navigation : MonoBehaviour
     {
         bool[] scan = map_scan.RayToScan();
 
-        if (scan[0] == false && _flag == 0)
+        if (scan[0] == false && move_state == 0)
         {
             int move_vertical = 1;
             Movement(0, move_vertical);
