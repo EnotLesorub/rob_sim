@@ -8,6 +8,7 @@ public class Robot : MonoBehaviour
     public float position_z;
 
     public float charge = 100f;
+    public bool status = true;
 
     private float speed = 2f;
     private float rotation_speed = 45;
