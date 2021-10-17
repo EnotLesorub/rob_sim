@@ -13,20 +13,21 @@ public class Map_scan : MonoBehaviour
 		target = GameObject.FindGameObjectWithTag(targetTag).transform;
 	}
 
-	bool GetRaycast(Vector3 dir)
+	int GetRaycast(Vector3 dir)
 	{
-		bool result = false;
+		int result = 0;
 		RaycastHit hit = new RaycastHit();
 		Vector3 pos = transform.position;
 		if (Physics.Raycast(pos, dir, out hit, distance))
 		{
 			if (hit.transform == target)
 			{
+				result = 0;
 				Debug.DrawLine(pos, hit.point, Color.blue);
 			}
 			else
 			{
-				result = true;
+				result = 2;
 				Debug.DrawLine(pos, hit.point, Color.green);
 			}
 		}
@@ -37,9 +38,9 @@ public class Map_scan : MonoBehaviour
 		return result;
 	}
 
-	public bool[] RayToScan()
+	public int[] RayToScan()
 	{
-		bool[] result = new bool[] { false, false, false };
+		int[] result = new int[] { 0, 0, 0 };
 
 		Vector3 dir = transform.TransformDirection(new Vector3(0, 0, 1));
 		result[0] = GetRaycast(dir);

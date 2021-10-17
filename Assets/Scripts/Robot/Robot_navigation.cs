@@ -7,9 +7,6 @@ public class Robot_navigation : MonoBehaviour
     private Robot robot;
     private Map_scan map_scan;
 
-    private string target_tag = "Robot";
-    private Transform target;
-
     private int move_state = 0;
     float target_angle = 0;
 
@@ -17,7 +14,6 @@ public class Robot_navigation : MonoBehaviour
     {
         robot = GetComponent<Robot>();
         map_scan = GetComponent<Map_scan>();
-        target = GameObject.FindGameObjectWithTag(target_tag).transform;
     }
 
     void Update()
@@ -27,7 +23,7 @@ public class Robot_navigation : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Robot_movements();
+        Robot_movements();
     }
 
     private void Movement(int moveHorizontal, int moveVertical)
@@ -42,7 +38,7 @@ public class Robot_navigation : MonoBehaviour
             move_state = 1;
             robot.Rotation_Logic(0);
 
-            if (target.eulerAngles.y - target_angle < 1 && target.eulerAngles.y - target_angle > 0)
+            if (transform.eulerAngles.y - target_angle < 1 && transform.eulerAngles.y - target_angle > 0)
             {
                 move_state = 0;
 
@@ -55,7 +51,7 @@ public class Robot_navigation : MonoBehaviour
             move_state = 1;
             robot.Rotation_Logic(1);
 
-            if (target.eulerAngles.y - target_angle < 1 && target.eulerAngles.y - target_angle > 0)
+            if (transform.eulerAngles.y - target_angle < 1 && transform.eulerAngles.y - target_angle > 0)
             {
                 move_state = 0;
                 transform.rotation = Quaternion.Euler(0, target_angle, 0);
@@ -68,10 +64,10 @@ public class Robot_navigation : MonoBehaviour
         if (move_state == 0)
         {
             if (direction == 0)
-                target_angle = Mathf.Round(target.eulerAngles.y) + angle;
+                target_angle = Mathf.Round(transform.eulerAngles.y) + angle;
 
             if (direction == 1)
-                target_angle = Mathf.Round(target.eulerAngles.y) - angle;
+                target_angle = Mathf.Round(transform.eulerAngles.y) - angle;
 
             if (target_angle >= 360)
                 target_angle -= 360;
@@ -82,12 +78,12 @@ public class Robot_navigation : MonoBehaviour
         Rotation_log(direction);
     }
 
-    /*
+    
     private void Robot_movements()
     {
-        bool[] scan = map_scan.RayToScan();
+        int[] scan = map_scan.RayToScan();
 
-        if (scan[0] == false && move_state == 0)
+        if (scan[0] == 0 && move_state == 0)
         {
             int move_vertical = 1;
             Movement(0, move_vertical);
@@ -98,5 +94,5 @@ public class Robot_navigation : MonoBehaviour
             Rotation(0, 90);
         }
     }
-    */
+    
 }

@@ -57,10 +57,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Robot\Robot.cs" />
     <Compile Include="Assets\Scripts\Robot\Robot_navigation.cs" />
-    <Compile Include="Assets\Scripts\Robot\Map_scan.cs" />
-    <Compile Include="Assets\Scripts\Control System\Center.cs" />
     <Compile Include="Assets\Scripts\Control System\Graph.cs" />
+    <Compile Include="Assets\Scripts\Control System\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Robot\Map_scan.cs" />
     <Compile Include="Assets\Scripts\Robot\Robot_brain.cs" />
+    <Compile Include="Assets\Scripts\Control System\Center.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
