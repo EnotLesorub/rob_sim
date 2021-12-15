@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position_x: 0
   position_z: 0
+  vertex_num: 0
+  robot_num: 0
   charge: 100
   status: 1
 --- !u!114 &4726443999544231405
@@ -168,3 +170,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1943263ffb11f5b49be52f64a1625bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task_queue: 

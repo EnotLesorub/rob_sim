@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4726443999544231408, guid: 5843ff1dc9d4a6c4a8761570f2e8c7b0, type: 3}
   spawner: {fileID: 1545250521}
-  robots_count: 4
+  robots_count: 2
 --- !u!1 &2075515944
 GameObject:
   m_ObjectHideFlags: 0

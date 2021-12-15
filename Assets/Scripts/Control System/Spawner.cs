@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         SpawnRobots(robots_count);
+        send_robot_num();
     }
 
     void Update()
@@ -29,7 +30,19 @@ public class Spawner : MonoBehaviour
         {
             spawn_point = new Vector3(posX, posY, posZ);
             Instantiate(prefab, spawn_point, Quaternion.Euler(0, 180, 0));
-            posZ += 2;
+            posZ += 1.5f;            
         }
+    }
+
+    void send_robot_num()
+    {
+        GameObject[] robots = GameObject.FindGameObjectsWithTag("Robot");
+        int robot_num = 0;
+
+        for(int i = 0; i < robots.Length; i++)
+        {
+            robots[i].SendMessage("get_robot_num", robot_num);
+            robot_num += 1;
+        }        
     }
 }

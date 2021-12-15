@@ -23,7 +23,7 @@ public class Robot_navigation : MonoBehaviour
 
     void FixedUpdate()
     {
-        Robot_movements();
+        //Robot_movements();
     }
 
     private void Movement(int moveHorizontal, int moveVertical)
@@ -79,7 +79,7 @@ public class Robot_navigation : MonoBehaviour
     }
 
     
-    private void Robot_movements()
+    /*private void Robot_movements()
     {
         int[] scan = map_scan.RayToScan();
 
@@ -93,6 +93,6 @@ public class Robot_navigation : MonoBehaviour
         {
             Rotation(0, 90);
         }
-    }
+    }*/
     
 }
